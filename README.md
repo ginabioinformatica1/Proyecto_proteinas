@@ -11,3 +11,27 @@ Este repositorio contiene un pipeline automatizado para descargar secuencias de 
 - R (versión 4.0 o superior)
 - HMMER (hmmbuild, hmmsearch)
 
+# PROCESO
+# 1. Descarga de familias Pfam
+# Ejecutar la siguiente linea en la terminal de Ubuntu:
+wget https://ftp.ebi.ac.uk/pub/databases/Pfam/current_release/Pfam-A.hmm.gz
+
+# 2. Crear carpeta de Pfam:
+mkdir bio_db && cd bio_db
+
+# 3. Descarga de modelos de archivos oclutos de Markov:
+wget https://ftp.ebi.ac.uk/pub/databases/Pfam/current_release/Pfam-A.hmm.gz
+
+# 4. Descomprimir archivo:
+gunzip Pfam-A.hmm.gz
+
+# Extraer solo las familias de interés a un archivo nuevo
+hmmfetch -f bio_db/Pfam-A.hmm familias_interes.txt > bio_db/Pfam_reducido.hmm
+
+# Indexar la nueva mini base de datos
+hmmpress bio_db/Pfam_reducido.hmm
+
+# Definir rutas de archivos con codigo de carpeta "busqueda_hmmer.sh"
+
+
+
