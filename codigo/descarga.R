@@ -1,0 +1,52 @@
+# 1. Lista de identificadores de UniProt proporcionados
+uniprot_ids <- c(
+  "P00519", "P42684", "P12931", "P06241", "P07947", "Q06187", "P43403", "P43405", 
+  "P62993", "P01112", "P01116", "P01111", "P04049", "P31749", "P28482", "P27361", 
+  "P00533", "P21802", "P16234", "P12956", "P29353", "P42681", "P35222", "P62937", 
+  "P29317", "P08047", "P15056", "P40763", "P42224", "P15924", "P10242", "P19838", 
+  "P11473", "P61244", "Q9Y2T1", "P08107", "P0A6Y8", "P0A6W5", "P0A9Q7", "P0A799", 
+  "P0A7Y4", "P0A8V2", "P39451", "P11142", "P13569", "P22681", "P98160", "P12814", 
+  "Q92793", "Q13485"
+)
+
+output_dir <- "../data"
+
+if (!dir.exists(output_dir)) {
+  # Si por alguna razón corres el script desde la raíz del proyecto, usa 'data' directamente
+  output_dir <- "data"
+  if (!dir.exists(output_dir)) {
+    dir.create(output_dir)
+  }
+}
+
+output_file <- file.path(output_dir, "secuencias_uniprot.fasta")
+
+# 3. Construcción de la consulta REST para descarga masiva
+ids_query <- paste(uniprot_ids, collapse = "+OR+")
+uniprot_url <- paste0("https://rest.uniprot.org/uniprotkb/search?query=(accession:", ids_query, ")&format=fasta")
+
+# 4. Proceso de descarga con manejo de errores
+message("Iniciando la descarga de ", length(uniprot_ids), " proteínas desde UniProt...")
+
+tryCatch({
+  # Método optimizado: Descarga todo el conjunto en un solo archivo
+  download.file(url = uniprot_url, destfile = output_file, method = "auto")
+  message("¡Descarga completada con éxito!")
+  message("Archivo guardado en: ", output_file)
+}, error = function(e) {
+  message("La descarga masiva falló. Iniciando método alternativo (descarga individual)...")
+  
+  fasta_content <- c()
+  for (id in uniprot_ids) {
+    individual_url <- paste0("https://rest.uniprot.org/uniprotkb/", id, ".fasta")
+    try({
+      lines <- readLines(individual_url, warn = FALSE)
+      fasta_content <- c(fasta_content, lines)
+      message("Descargado con éxito: ", id)
+    }, silent = TRUE)
+  }
+  
+  # Guardar todo el contenido recolectado en el archivo final
+  writeLines(fasta_content, output_file)
+  message("¡Proceso alternativo completado! Archivo guardado en: ", output_file)
+})
