@@ -12,7 +12,7 @@ if (!dir.exists("resultados")) {
 
 # 2. Guardar la lista de las 38 familias del Anexo 1 en un archivo de texto
 familias <- c(
-  "Protein_kinase", "Pkinase_Tyr", "Ras", "SH2", "SH3_1", "zf-C2H2", 
+  "Pkinase", "Pkinase_Tyr", "Ras", "SH2", "SH3_1", "zf-C2H2", 
   "Homeobox", "HTH_1", "bZIP_1", "Myb_DNA-binding", "RRM_1", "DEAD", 
   "KH_1", "dsrm", "ABC_tran", "MFS_1", "Ion_trans", "HlyD", 
   "Aminotran_1_2", "Aldedh", "TIM", "NAD_binding_1", "GST_C_family", 
