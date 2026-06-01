@@ -41,6 +41,10 @@ ejecutara el codigo de las lineas 31 a la 52 por medio de un bucle
 # 8. Ejecutar en la Terminal de R
 source("codigo/descarga.R")
 
+# 9. Codigo de Pipeline R
+Script maestro para llamar a HMMER
 
+# 10. Ejecutar Pipeline en la Terminal de R
+source("codigo/pipeline.R")
 
 
