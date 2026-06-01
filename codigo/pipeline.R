@@ -2,8 +2,8 @@
 base_pfam     <- "/home/ginamaria/bio_db/Pfam-A.hmm"
 lista_txt     <- "/home/ginamaria/bio_db/familias_interes.txt"
 pfam_reducido <- "/home/ginamaria/bio_db/Pfam_reducido.hmm"
-fasta_input   <- "data/secuencias_uniprot.fasta"
-output_hmm    <- "resultados/resultados_dominios.txt"
+fasta_input   <- "/home/ginamaria/repositorios/Proyecto_proteinas/data/secuencias_uniprot.fasta"
+output_hmm    <- "/home/ginamaria/repositorios/Proyecto_proteinas/resultados/resultados_dominios.txt"
 
 # Asegurar que la carpeta de resultados exista
 if (!dir.exists("resultados")) {
