@@ -38,6 +38,9 @@ creara un archivo con todas las secuencias FASTA y lo guardará en la carpeta da
 si el metodo rapido falla porque la URL quedo demasiado larga
 ejecutara el codigo de las lineas 31 a la 52 por medio de un bucle
 
+# 8. Ejecutar en la Terminal de R
+source("codigo/descarga.R")
+
 
 
 
