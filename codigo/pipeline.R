@@ -27,7 +27,7 @@ message("--> Lista de familias guardada en: ", lista_txt)
 
 # 3. EXTRAER FAMILIAS 
 message("--> Extrayendo familias seleccionadas desde la base de datos global...")
-cmd_fetch <- paste("hmmfetch -f", base_pfam, lista_txt, ">", pfam_reducido)
+cmd_fetch <- paste("hmmfetch -o", pfam_reducido, "-f", base_pfam, lista_txt)
 system(cmd_fetch)
 
 
