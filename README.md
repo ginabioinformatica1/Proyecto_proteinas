@@ -25,13 +25,19 @@ wget https://ftp.ebi.ac.uk/pub/databases/Pfam/current_release/Pfam-A.hmm.gz
 # 4. Descomprimir archivo:
 gunzip Pfam-A.hmm.gz
 
-# Extraer solo las familias de interés a un archivo nuevo
+# 5. Extraer solo las familias de interés a un archivo nuevo
 hmmfetch -f bio_db/Pfam-A.hmm familias_interes.txt > bio_db/Pfam_reducido.hmm
 
-# Indexar la nueva mini base de datos
+# 6. Indexar la nueva mini base de datos
 hmmpress bio_db/Pfam_reducido.hmm
 
-# Definir rutas de archivos con codigo de carpeta "busqueda_hmmer.sh"
+# 7. Codigo para descargas de familias de Uniprot
+Ejecutar codigo de carpeta "descarga.R"
+El código tiene dos formas de descarga: la primera de la linea 1 a la 29
+creara un archivo con todas las secuencias FASTA y lo guardará en la carpeta data
+si el metodo rapido falla porque la URL quedo demasiado larga
+ejecutara el codigo de las lineas 31 a la 52 por medio de un bucle
+
 
 
 
