@@ -1,6 +1,6 @@
 # 1. Definición de rutas y archivos de interés
 base_pfam     <- "/home/ginamaria/bio_db/Pfam-A.hmm"
-lista_txt     <- "codigo/familias_interes.txt"
+lista_txt     <- "/home/ginamaria/bio_db/familias_interes.txt"
 pfam_reducido <- "/home/ginamaria/bio_db/Pfam_reducido.hmm"
 fasta_input   <- "data/secuencias_uniprot.fasta"
 output_hmm    <- "resultados/resultados_dominios.txt"
