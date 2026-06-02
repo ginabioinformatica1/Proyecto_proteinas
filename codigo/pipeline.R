@@ -25,12 +25,6 @@ writeLines(familias, con = lista_txt)
 message("--> Lista de familias guardada en: ", lista_txt)
 
 
-# 3. EXTRAER FAMILIAS 
-message("--> Extrayendo familias seleccionadas desde la base de datos global...")
-cmd_fetch <- paste("hmmfetch -o", pfam_reducido, "-f", base_pfam, lista_txt)
-system(cmd_fetch)
-
-
 # 4. INDEXAR LA NUEVA BASE DE DATOS REDUCIDA
 message("--> Indexando el archivo HMM reducido...")
 cmd_press <- paste("hmmpress -f", pfam_reducido)
