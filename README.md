@@ -31,6 +31,43 @@ hmmfetch -f Pfam-A.hmm familias_interes.txt > Pfam_reducido.hmm
 # 6. Indexar la nueva mini base de datos
 hmmpress bio_db/Pfam_reducido.hmm
 
+
+
+# 1. Crear la carpeta contenedora
+mkdir -p pfam_database
+
+# 2. Descargar el archivo directamente dentro de la nueva carpeta
+wget -P pfam_database/ https://ftp.ebi.ac.uk/pub/databases/Pfam/current_release/Pfam-A.hmm.gz
+
+# 3. Descomprimir el archivo en su ubicación
+gunzip pfam_database/Pfam-A.hmm.gz
+
+# 4. Extraer las familias (asumiendo que 'familias_interes.txt' está en la raíz)
+hmmfetch -f pfam_database/Pfam-A.hmm familias_interes.txt > pfam_database/Pfam_reducido.hmm
+
+# 5. Indexar la mini base de datos apuntando a la ruta correcta
+hmmpress pfam_database/Pfam_reducido.hmm
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 # 7. Codigo para descargas de familias de Uniprot
 Ejecutar codigo de carpeta "descarga.R"
 El código tiene dos formas de descarga: la primera de la linea 1 a la 29
