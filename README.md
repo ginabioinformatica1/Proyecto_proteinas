@@ -26,7 +26,7 @@ wget https://ftp.ebi.ac.uk/pub/databases/Pfam/current_release/Pfam-A.hmm.gz
 gunzip Pfam-A.hmm.gz
 
 # 5. Extraer solo las familias de interés a un archivo nuevo
-hmmfetch -f bio_db/Pfam-A.hmm familias_interes.txt > bio_db/Pfam_reducido.hmm
+hmmfetch -f Pfam-A.hmm familias_interes.txt > Pfam_reducido.hmm
 
 # 6. Indexar la nueva mini base de datos
 hmmpress bio_db/Pfam_reducido.hmm
